@@ -17,7 +17,38 @@ So I decided to go ahead and build a little utility that would if not fix, at le
 
 Python with PyGTK bindings, GTK, git, and the Android SDK.
 
-Getting these should be fairly straightforward if you're running any decent Linux distribution. If you're using Windows I believe there are next-next-next installers for everything. This leaves us with the third option which is Mac OS. Up until recently there wasn't an easy way to get any PyGTK software working in Mac OS, but turns out you can now download a binary build of PyGTK for Mac OS with which aafm works quite well!
+Getting these should be fairly straightforward if you're running any decent Linux distribution. 
+
+#### Windows ####
+
+If you're using Windows I believe there are next-next-next installers for everything:
+For running this on Windows:
+
+Install 32-bit Python 2.7: https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi
+
+Install pyGtk: http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/pygtk-all-in-one-2.24.2.win32-py2.7.msi
+
+Run `cmd` 
+```
+  cd \python27
+  scripts\pip install pypiwin32
+```
+
+ Make sure ADB is in your path, or `copy adb* ../aafm-master/src` 
+ Here's a standalone copy of ADB directly from Google (finally!): https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+
+ Edit `aafm-gui.py`
+   Comment out with a # the lines that say `import pwd` and `import grp` if running aafm-gui.py gives any trouble. 
+   
+ Run aafm-gui.py 
+
+If `adb devices` doesn't work or shows device offline, unlock your device and authenticate
+then do `adb kill-server` and `adb devices` again. 
+
+If it dies or doesn't work, try another USB cable. 
+
+#### Mac OSX ####
+This leaves us with the third option which is Mac OS. Up until recently there wasn't an easy way to get any PyGTK software working in Mac OS, but turns out you can now download a binary build of PyGTK for Mac OS with which aafm works quite well!
 
 It can be downloaded from http://afb.users.sourceforge.net/zero-install/PyGTK.pkg ([more info](http://python.6.n6.nabble.com/Testing-PyGTK-installer-for-Mac-OS-X-td1948270.html)). Simply run the installer once downloaded, and then follow the instructions below as if you were running a proper Linux system.
 
