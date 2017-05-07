@@ -9,14 +9,15 @@ import shutil
 import socket
 import datetime
 import stat
-import pwd
-import grp
 import urllib
 
 if os.name == 'nt':
 	import win32api
 	import win32con
 	import win32security
+else:
+	import pwd
+	import grp
 
 from TreeViewFile import TreeViewFile
 from Aafm import Aafm
